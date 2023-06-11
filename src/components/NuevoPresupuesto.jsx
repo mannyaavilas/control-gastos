@@ -1,18 +1,23 @@
-import { children, useState } from 'react'
+import { useState } from 'react'
 import Mensaje from './Mensaje';
 
-const NuevoPresupuesto = ({presupuesto, setPresupuesto}) => {
+const NuevoPresupuesto = ({ presupuesto, setPresupuesto, setIsValidPresupuesto }) => {
 
-  const [ mensaje, setMesaje ] = useState('');
+  const [ mensaje, setMensaje ] = useState('');
 
   const handlePresupuesto = (e) => {
       e.preventDefault();
 
-      if(!Number(presupuesto) || Number(presupuesto) < 0){
-        setMesaje('No es un número válido');
-      }else{
-        console.log('si es');
+      if(!Number(presupuesto) || Number(presupuesto) < 0) {
+        setMensaje('Introduce un número válido');
+
+        return
       }
+
+      setMensaje('');
+      setIsValidPresupuesto(true);
+
+
   }
 
   return (
@@ -26,13 +31,13 @@ const NuevoPresupuesto = ({presupuesto, setPresupuesto}) => {
                     type='text'
                     placeholder='Añade tu Presupuesto'
                     value={presupuesto}
-                    onChange={ e => setPresupuesto(e.target.value) }
+                    onChange={ e => setPresupuesto(Number(e.target.value)) }
                  />
             </div>
 
             <input type="submit" value="Añadir" />
 
-            {mensaje && <Mensaje tipo="error">{children}</Mensaje>}
+            {mensaje && <Mensaje tipo='error'>{mensaje}</Mensaje>}
         </form>
     </div>
   )
