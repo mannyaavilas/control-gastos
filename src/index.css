@@ -351,6 +351,7 @@ main {
 }
 .modal .cerrar-modal img {
     width: 100%;
+    cursor: pointer;
 }
 
 .modal .formulario {
