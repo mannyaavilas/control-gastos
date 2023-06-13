@@ -163,6 +163,10 @@ header h1 {
 
     transform: translateY(5rem);
 }
+.contenedor-presupuesto p.presupuesto{
+    color: #31ee1c!important;
+    font-weight: bold;
+}
 .dos-columnas {
     flex-direction: column;
 }
