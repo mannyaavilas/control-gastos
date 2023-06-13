@@ -27,7 +27,7 @@ const diccionarioIconos = {
         suscripciones: IconoSuscripciones
 }
 
-const Gasto = ({gasto, setGastoEditar}) => {
+const Gasto = ({gasto, setGastoEditar, eliminarGasto}) => {
 
     const formatearGasto = (monto) => {
         return monto.toLocaleString('en-US', {
@@ -48,7 +48,7 @@ const Gasto = ({gasto, setGastoEditar}) => {
 
     const trailingActions = () => (
         <TrailingActions>
-            <SwipeAction onClick={() => console.log('eliminar...')}>
+            <SwipeAction onClick={() => eliminarGasto(id)} destructive={true}>
                 Eliminar
             </SwipeAction>
         </TrailingActions>
