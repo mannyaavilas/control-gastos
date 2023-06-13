@@ -27,7 +27,7 @@ const diccionarioIconos = {
         suscripciones: IconoSuscripciones
 }
 
-const Gasto = ({gasto}) => {
+const Gasto = ({gasto, setGastoEditar}) => {
 
     const formatearGasto = (monto) => {
         return monto.toLocaleString('en-US', {
@@ -40,7 +40,7 @@ const Gasto = ({gasto}) => {
 
     const leadingActions = () => (
         <LeadingActions>
-            <SwipeAction onClick={() => console.log('editar...')}>
+            <SwipeAction onClick={() => setGastoEditar(gasto)}>
                 Editar
             </SwipeAction>
         </LeadingActions>
